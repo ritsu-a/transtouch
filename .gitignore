@@ -1,0 +1,35 @@
+.idea/
+*~
+/CMakeLists.txt
+.vscode/
+__pycache__
+
+.cache
+
+# custom ops
+build/
+*.so
+
+output*/
+
+# miscellaneous
+configs_old/
+sapien-2.0.0.dev20220412-cp38-cp38-manylinux2014_x86_64.whl
+*.whl
+render_data.sh
+test.py
+render_scripts/
+generate_render.py
+nohup.out
+generate_normal.sh
+try.py
+*.png
+wandb/
+result/
+running_scripts.txt
+
+configs_*/
+
+tactile_files*/
+
+depth_gt/

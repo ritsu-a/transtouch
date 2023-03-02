@@ -1,0 +1,1 @@
+python active_zero2/inpainting/inpaint_d2d.py -d /share/datasets/chenrui/real_data_v10/ -s /share/datasets/chenrui/real_data_v10/test_list.txt -p outputs/pengyang/model_060000 -c 0.8 -n 20 -a 10000

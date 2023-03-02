@@ -1,0 +1,1 @@
+python active_zero2/test.py --cfg configs/pengyang.yml -s TEST.WEIGHT @/model_060000.pth
