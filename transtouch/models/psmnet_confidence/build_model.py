@@ -1,4 +1,4 @@
-from active_zero2.models.psmnet_confidence.psmnet_3 import PSMNetConfidence
+from transtouch.models.psmnet_confidence.psmnet_3 import PSMNetConfidence
 
 
 def build_model(cfg):

@@ -1,4 +1,4 @@
-from active_zero2.models.psmnet_dilation_error_segmentation_volume.psmnet_3 import PSMNetDilationErrorSegmentationVolume
+from transtouch.models.psmnet_dilation_error_segmentation_volume.psmnet_3 import PSMNetDilationErrorSegmentationVolume
 
 
 def build_model(cfg):

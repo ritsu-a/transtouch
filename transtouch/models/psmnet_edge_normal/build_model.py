@@ -1,4 +1,4 @@
-from active_zero2.models.psmnet_edge_normal.psmnet_3 import PSMNetEdgeNormal
+from transtouch.models.psmnet_edge_normal.psmnet_3 import PSMNetEdgeNormal
 
 
 def build_model(cfg):

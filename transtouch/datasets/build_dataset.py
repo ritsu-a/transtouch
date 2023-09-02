@@ -1,4 +1,4 @@
-from active_zero2.datasets.messytable import MessyTableDataset
+from transtouch.datasets.messytable import MessyTableDataset
 
 
 def build_dataset(cfg, mode, domain):

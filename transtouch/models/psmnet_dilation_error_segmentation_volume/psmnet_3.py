@@ -2,12 +2,12 @@ import math
 
 import torch
 
-from active_zero2.models.psmnet_dilation.psmnet_submodule_3 import *
-from active_zero2.utils.confidence import compute_confidence
-from active_zero2.utils.reprojection import compute_reproj_loss_patch
+from transtouch.models.psmnet_dilation.psmnet_submodule_3 import *
+from transtouch.utils.confidence import compute_confidence
+from transtouch.utils.reprojection import compute_reproj_loss_patch
 
-from active_zero2.models.psmnet_dilation_error_segmentation.resnet import ResNet18_OS16, ResNet34_OS16, ResNet50_OS16, ResNet101_OS16, ResNet152_OS16, ResNet18_OS8, ResNet34_OS8
-from active_zero2.models.psmnet_dilation_error_segmentation.aspp import ASPP, ASPP_Bottleneck
+from transtouch.models.psmnet_dilation_error_segmentation.resnet import ResNet18_OS16, ResNet34_OS16, ResNet50_OS16, ResNet101_OS16, ResNet152_OS16, ResNet18_OS8, ResNet34_OS8
+from transtouch.models.psmnet_dilation_error_segmentation.aspp import ASPP, ASPP_Bottleneck
 
 from torch.autograd import Function
 

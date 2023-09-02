@@ -23,12 +23,12 @@ generate_render.py
 nohup.out
 generate_normal.sh
 try.py
-*.png
 wandb/
 result/
 running_scripts.txt
 
 configs_*/
+*.png
 
 tactile_files*/
 

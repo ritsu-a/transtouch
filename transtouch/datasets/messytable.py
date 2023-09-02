@@ -12,12 +12,12 @@ import matplotlib.pyplot as plt
 from torch.utils.data import Dataset
 from tqdm import tqdm
 
-from active_zero2.datasets.data_augmentation import SimIRNoise, DataAug
-from active_zero2.utils.io import load_pickle
-from active_zero2.utils.checkpoint import CheckpointerV2
-from active_zero2.models.build_model import build_model
-from active_zero2.utils.reprojection import apply_disparity, apply_disparity_v2
-from active_zero2.utils.disp_grad import DispGrad
+from transtouch.datasets.data_augmentation import SimIRNoise, DataAug
+from transtouch.utils.io import load_pickle
+from transtouch.utils.checkpoint import CheckpointerV2
+from transtouch.models.build_model import build_model
+from transtouch.utils.reprojection import apply_disparity, apply_disparity_v2
+from transtouch.utils.disp_grad import DispGrad
 
 
 class MessyTableDataset(Dataset):
@@ -91,7 +91,7 @@ class MessyTableDataset(Dataset):
 
         self.masks = {}
         for view_id in range(1, 18):
-            rgb_mask = cv2.imread(f"/share/liuyu/activezero2/active_zero2/assets/real_robot_masks/m{view_id}.png")
+            rgb_mask = cv2.imread(f"/share/pengyang/transtouch/transtouch/assets/real_robot_masks/m{view_id}.png")
             rgb_mask = cv2.resize(rgb_mask[:, :, 0], (960, 540))
             mask = (rgb_mask == rgb_mask.min())
             self.masks[view_id] = mask
@@ -258,7 +258,7 @@ class MessyTableDataset(Dataset):
 
         # if self.use_error_segmentation:
         #     error_segmentation_rgb = cv2.imread(
-        #         "/data/pengyang/activezero2/outputs/pengyang_error_segmentation_gt/model_060000_test/" + img_dir.split("/")[-1] + "_real/disp_err_mask2.png",
+        #         "/data/pengyang/transtouch/outputs/pengyang_error_segmentation_gt/model_060000_test/" + img_dir.split("/")[-1] + "_real/disp_err_mask2.png",
         #         cv2.IMREAD_UNCHANGED
         #         ).astype(int)
         #     error_segmentation_gt = (error_segmentation_rgb == 127).astype(float)[:, : , 0]

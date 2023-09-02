@@ -3,7 +3,7 @@ DATA:
   VAL:
     REAL:
         ROOT_DIR: "/share/datasets/sim2real_tactile/real/dataset/"
-        SPLIT_FILE: "/share/pengyang/transtouch/split_files/ts_val.txt"
+        SPLIT_FILE: "/share/pengyang/sim2real_active_tactile/split_files/ts_val.txt"
         META_NAME: "meta.pkl"
         DEPTH_NAME: "depthL.png"
         LEFT_NAMES: ("1024_irL_real_360.png",)
@@ -29,7 +29,7 @@ DATA:
   TUNE:
     REAL:
       ROOT_DIR: "/share/datasets/sim2real_tactile/touch/"
-      SPLIT_FILE: "/share/pengyang/transtouch/split_files/ts_tune.txt"
+      SPLIT_FILE: "/share/liuyu/activezero2/split_files/ts_tune.txt"
       META_NAME: "meta.pkl"
       LEFT_NAMES: ("1024_irL_real_360.png",)
       RIGHT_NAMES: ("1024_irR_real_360.png",)
@@ -39,7 +39,7 @@ DATA:
       WIDTH: 960
     SIM:
       ROOT_DIR: "/share/datasets/sim2real_tactile/sapien0923/data"
-      SPLIT_FILE: "/share/pengyang/transtouch/split_files/sapien0923_train.txt"
+      SPLIT_FILE: "/share/pengyang/sim2real_active_tactile/split_files/sapien0923_train.txt"
       META_NAME: "meta.pkl"
       DEPTH_NAME: "depthL.png"
       LEFT_NAMES: ("0128_ir00L_kuafu_half.png",)

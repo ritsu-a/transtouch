@@ -2,10 +2,10 @@ import math
 
 import torch
 
-from active_zero2.models.psmnet_edge_normal.psmnet_submodule_3 import *
-from active_zero2.utils.confidence import compute_confidence
-from active_zero2.utils.reprojection import compute_reproj_loss_patch
-from active_zero2.utils.disp_grad import DispGrad
+from transtouch.models.psmnet_edge_normal.psmnet_submodule_3 import *
+from transtouch.utils.confidence import compute_confidence
+from transtouch.utils.reprojection import compute_reproj_loss_patch
+from transtouch.utils.disp_grad import DispGrad
 
 
 class hourglass(nn.Module):

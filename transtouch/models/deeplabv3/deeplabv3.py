@@ -6,8 +6,8 @@ import torch.nn.functional as F
 
 import os
 
-from active_zero2.models.deeplabv3.resnet import ResNet18_OS16, ResNet34_OS16, ResNet50_OS16, ResNet101_OS16, ResNet152_OS16, ResNet18_OS8, ResNet34_OS8
-from active_zero2.models.deeplabv3.aspp import ASPP, ASPP_Bottleneck
+from transtouch.models.deeplabv3.resnet import ResNet18_OS16, ResNet34_OS16, ResNet50_OS16, ResNet101_OS16, ResNet152_OS16, ResNet18_OS8, ResNet34_OS8
+from transtouch.models.deeplabv3.aspp import ASPP, ASPP_Bottleneck
 
 class DeepLabV3(nn.Module):
     def __init__(self):

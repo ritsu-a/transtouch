@@ -14,9 +14,7 @@ CUR_DIR = os.path.dirname(__file__)
 
 from data_rendering.utils.folder_paths import TEXTURE_SQ_FOLDER, TEXTURE_SQ_LIST, ENV_MAP_FOLDER, ENV_MAP_LIST
 
-# ENV_MAP_FOLDER = "/media/DATA/LINUX_DATA/activezero2/datasets/rand_env/"
 Path(ENV_MAP_FOLDER).makedirs_p()
-# ENV_MAP_LIST = "/media/DATA/LINUX_DATA/activezero2/datasets/rand_env/list.txt"
 
 with open(TEXTURE_SQ_LIST, "r") as f:
     texture_sq_list = [line.strip() for line in f]

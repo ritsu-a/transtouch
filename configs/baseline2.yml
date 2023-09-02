@@ -16,7 +16,7 @@ DATA:
   TEST:
     REAL:
         ROOT_DIR: "/share/datasets/sim2real_tactile/real/dataset/"
-        SPLIT_FILE: "/share/pengyang/transtouch/split_files/ts_test.txt"
+        SPLIT_FILE: "/share/pengyang/transtouch/split_files/ts_vis.txt"
         META_NAME: "meta.pkl"
         DEPTH_NAME: "depthL.png"
         LEFT_NAMES: ("1024_irL_real_360.png",)

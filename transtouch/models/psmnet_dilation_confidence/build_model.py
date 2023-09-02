@@ -1,4 +1,4 @@
-from active_zero2.models.psmnet_dilation.psmnet_3 import PSMNetDilation
+from transtouch.models.psmnet_dilation.psmnet_3 import PSMNetDilation
 
 
 def build_model(cfg):

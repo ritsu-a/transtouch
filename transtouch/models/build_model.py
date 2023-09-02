@@ -1,9 +1,9 @@
-from active_zero2.models.psmnet_confidence.build_model import build_model as build_psmnet_confidence
-from active_zero2.models.psmnet_dilation.build_model import build_model as build_psmnet_dilation
-from active_zero2.models.deeplabv3.build_model import build_model as build_deeplabv3
-from active_zero2.models.psmnet_dilation_error_segmentation.build_model import build_model as build_psmnet_dilation_error_segmentation
-from active_zero2.models.psmnet_dilation_error_segmentation_volume.build_model import build_model as build_psmnet_dilation_error_segmentation_volume
-from active_zero2.models.psmnet_edge_normal.build_model import build_model as build_psmnet_edge_normal
+from transtouch.models.psmnet_confidence.build_model import build_model as build_psmnet_confidence
+from transtouch.models.psmnet_dilation.build_model import build_model as build_psmnet_dilation
+from transtouch.models.deeplabv3.build_model import build_model as build_deeplabv3
+from transtouch.models.psmnet_dilation_error_segmentation.build_model import build_model as build_psmnet_dilation_error_segmentation
+from transtouch.models.psmnet_dilation_error_segmentation_volume.build_model import build_model as build_psmnet_dilation_error_segmentation_volume
+from transtouch.models.psmnet_edge_normal.build_model import build_model as build_psmnet_edge_normal
 
 MODEL_LIST = (
     "PSMNetConfidence",

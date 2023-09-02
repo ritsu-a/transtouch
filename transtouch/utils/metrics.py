@@ -14,9 +14,9 @@ import torch.nn.functional as conf_mapF
 from path import Path
 from tabulate import tabulate
 
-from active_zero2.models.build_model import MODEL_LIST
-from active_zero2.utils.geometry import cal_normal_map, depth2pts_np
-from active_zero2.utils.reprojection import apply_disparity, apply_disparity_v2
+from transtouch.models.build_model import MODEL_LIST
+from transtouch.utils.geometry import cal_normal_map, depth2pts_np
+from transtouch.utils.reprojection import apply_disparity, apply_disparity_v2
 
 with open(osp.join(_ROOT_DIR, "data_rendering/materials/objects_v2.csv"), "r") as f:
     OBJECT_INFO = csv.reader(f)
@@ -80,7 +80,7 @@ class ErrorMetric(object):
         self.num_classes = num_classes
         assert len(OBJECT_NAMES) == num_classes
         # load real robot masks
-        mask_dir = Path(_ROOT_DIR) / "active_zero2/assets/real_robot_masks"
+        mask_dir = Path(_ROOT_DIR) / "transtouch/assets/real_robot_masks"
         self.real_robot_masks = {}
         for mask_file in sorted(mask_dir.listdir("m*.png")):
             rgb_mask = cv2.imread(mask_file)
@@ -90,7 +90,7 @@ class ErrorMetric(object):
         # load realsense mask
         self.realsense_mask = realsense_mask
         if realsense_mask:
-            self.realsense_mask_dir = Path(_ROOT_DIR) / "active_zero2/assets/realsense_masks"
+            self.realsense_mask_dir = Path(_ROOT_DIR) / "trantouch/assets/realsense_masks"
             self.realsense_masks = {}
             assert self.realsense_mask_dir.exists()
             for mask_file in sorted(self.realsense_mask_dir.listdir("*.png")):
@@ -494,8 +494,14 @@ class ErrorMetric(object):
                     )
                 )
                 # o3d.io.write_point_cloud(os.path.join(save_folder, "gt.pcd"), pcd_gt)
+    
+                
                 pcd_pred = o3d.geometry.PointCloud()
                 pcd_pred.points = o3d.utility.Vector3dVector(depth2pts_np(depth_pred, intrinsic_l))
+                
+                print(depth_pred.shape)
+                print(depth_diff.shape)
+
                 
                 pcd_pred.colors = o3d.utility.Vector3dVector(
                     self.cmap(
@@ -506,25 +512,24 @@ class ErrorMetric(object):
                         )
                     )[..., :3].reshape(-1, 3)
                 )             
+                in_scene = mask.reshape(-1)
+                points = []
+                colors = []
+                for idx in range(len(pcd_pred.points)):
+                    if in_scene[idx]:
+                        points.append(pcd_pred.points[idx])
+                        colors.append(pcd_pred.colors[idx])
 
-                # use pred confidence as colour
+                pcd_pred.points = o3d.utility.Vector3dVector(points)
+                pcd_pred.colors = o3d.utility.Vector3dVector(colors)
 
-                #pcd_pred.colors = o3d.utility.Vector3dVector(
-                #    self.cmap(
-                #        np.clip(
-                #            (confidence - 1e5 * (1 - mask)),
-                #            0,
-                #            1,
-                #        )
-                #    )[..., :3].reshape(-1, 3)
-                #)         
-                
                 pcd_pred = pcd_pred.crop(
                     o3d.geometry.AxisAlignedBoundingBox(
                         min_bound=np.array([-10, -10, 0.1]), max_bound=np.array([10, 10, 1.8])
                     )
                 )
-                o3d.io.write_point_cloud(os.path.join(save_folder, "pred_confidence.pcd"), pcd_pred)
+                pth = data_batch["dir"]
+                o3d.io.write_point_cloud(os.path.join(save_folder, f"{pth}.pcd"), pcd_pred)
 
                 if left_right:
                     pcd_pred = o3d.geometry.PointCloud()

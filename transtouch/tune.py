@@ -27,22 +27,22 @@ from torch.utils.data import DataLoader, DistributedSampler
 from torch.utils.data.sampler import BatchSampler, RandomSampler, SequentialSampler
 from torch.utils.tensorboard import SummaryWriter
 
-from active_zero2.config import cfg
-from active_zero2.datasets.build_dataset import build_dataset
-from active_zero2.models.build_model import build_model
-from active_zero2.utils.cfg_utils import purge_cfg
-from active_zero2.utils.checkpoint import CheckpointerV2
-from active_zero2.utils.loguru_logger import setup_logger
-from active_zero2.utils.metric_logger import MetricLogger
-from active_zero2.utils.reduce import set_random_seed, synchronize
-from active_zero2.utils.sampler import IterationBasedBatchSampler
-from active_zero2.utils.solver import build_lr_scheduler, build_optimizer
-from active_zero2.utils.metrics import ErrorMetric
-from active_zero2.utils.torch_utils import worker_init_fn
+from transtouch.config import cfg
+from transtouch.datasets.build_dataset import build_dataset
+from transtouch.models.build_model import build_model
+from transtouch.utils.cfg_utils import purge_cfg
+from transtouch.utils.checkpoint import CheckpointerV2
+from transtouch.utils.loguru_logger import setup_logger
+from transtouch.utils.metric_logger import MetricLogger
+from transtouch.utils.reduce import set_random_seed, synchronize
+from transtouch.utils.sampler import IterationBasedBatchSampler
+from transtouch.utils.solver import build_lr_scheduler, build_optimizer
+from transtouch.utils.metrics import ErrorMetric
+from transtouch.utils.torch_utils import worker_init_fn
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="ActiveZero2")
+    parser = argparse.ArgumentParser(description="transtouch")
     parser.add_argument(
         "--cfg",
         dest="config_file",
@@ -106,10 +106,10 @@ if __name__ == "__main__":
         cfg.OUTPUT_DIR = output_dir
 
     logger = setup_logger(
-        f"ActiveZero2.tuning [{config_name}]", output_dir, rank=local_rank, filename=f"log.tune.{run_name}.txt"
+        f"transtouch.tuning [{config_name}]", output_dir, rank=local_rank, filename=f"log.tune.{run_name}.txt"
     )
     logger.info(args)
-    from active_zero2.utils.collect_env import collect_env_info
+    from transtouch.utils.collect_env import collect_env_info
 
     logger.info("Collecting env info (might take some time)\n" + collect_env_info())
     logger.info(f"Loaded config file: '{args.config_file}'")
@@ -219,7 +219,7 @@ if __name__ == "__main__":
 
     masks = {}
     for view_id in range(1, 18):
-        rgb_mask = cv2.imread(f"/share/liuyu/activezero2/active_zero2/assets/real_robot_masks/m{view_id}.png")
+        rgb_mask = cv2.imread(f"/share/pengyang/transtouch//assets/real_robot_masks/m{view_id}.png")
         rgb_mask = cv2.resize(rgb_mask[:, :, 0], (960, 540))
         mask = (rgb_mask == rgb_mask.min())
         masks[view_id] = mask

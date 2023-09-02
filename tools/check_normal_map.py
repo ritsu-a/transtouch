@@ -12,8 +12,8 @@ import numpy as np
 from loguru import logger
 from path import Path
 
-from active_zero2.utils.geometry import cal_normal_map
-from active_zero2.utils.io import load_pickle
+from transtouch.utils.geometry import cal_normal_map
+from transtouch.utils.io import load_pickle
 
 parser = argparse.ArgumentParser(description="Extract temporal IR pattern from temporal real images")
 parser.add_argument(

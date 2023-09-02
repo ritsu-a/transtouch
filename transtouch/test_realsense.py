@@ -9,14 +9,14 @@ import torch
 from path import Path
 from tqdm import tqdm
 
-from active_zero2.config import cfg
-from active_zero2.datasets.messytable import MessyTableDataset
-from active_zero2.utils.io import load_pickle
-from active_zero2.utils.loguru_logger import setup_logger
-from active_zero2.utils.metrics import ErrorMetric
+from transtouch.config import cfg
+from transtouch.datasets.messytable import MessyTableDataset
+from transtouch.utils.io import load_pickle
+from transtouch.utils.loguru_logger import setup_logger
+from transtouch.utils.metrics import ErrorMetric
 from data_rendering.utils.render_utils import visualize_depth
 
-from active_zero2.utils.cfg_utils import purge_cfg
+from transtouch.utils.cfg_utils import purge_cfg
 
 import os.path as osp
 import warnings
@@ -110,7 +110,7 @@ def main():
     # run name
     timestamp = time.strftime("%y-%m-%d_%H-%M-%S")
     run_name = "{:s}".format(timestamp)
-    logger = setup_logger(f"ActiveZero2.test RealSense", output_dir, rank=0, filename=f"log.realsense.{run_name}.txt")
+    logger = setup_logger(f"transtouch.test RealSense", output_dir, rank=0, filename=f"log.realsense.{run_name}.txt")
     logger.info(args)
 
     # use default test config

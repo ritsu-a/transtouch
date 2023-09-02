@@ -14,7 +14,7 @@ import csv
 from tabulate import tabulate
 from tqdm import tqdm
 
-from active_zero2.utils.loguru_logger import setup_logger
+from transtouch.utils.loguru_logger import setup_logger
 import matplotlib.pyplot as plt
 
 with open(osp.join(_ROOT_DIR, "data_rendering/materials/objects.csv"), "r") as f:
@@ -60,7 +60,7 @@ def main():
 
     timestamp = time.strftime("%y-%m-%d_%H-%M-%S")
     run_name = "{:s}".format(timestamp)
-    logger = setup_logger(f"ActiveZero2.test Normal3", pred_folder, rank=0, filename=f"log.normal3.{run_name}.txt")
+    logger = setup_logger(f"transtouch.test Normal3", pred_folder, rank=0, filename=f"log.normal3.{run_name}.txt")
     logger.info(args)
 
     with open(args.split_file, "r") as f:

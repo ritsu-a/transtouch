@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backend_bases import MouseButton
 
-from active_zero2.utils.reprojection import compute_reproj_loss_patch_points
+from transtouch.utils.reprojection import compute_reproj_loss_patch_points
 
 
 def main():
